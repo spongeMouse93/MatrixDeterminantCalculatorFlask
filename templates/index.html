@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Determinant Calculator</title>
+        <style>
+            body {
+                background-color: honeydew;
+                font-family: "Century Gothic", Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Determinant Calculator</h1>
+        <form action="/determinant" method="post">
+            <table>
+                <tr>
+                    <td><label for="a11">a11:</label></td>
+                    <td><input type="text" name="a11" required></td>
+                </tr>
+                <tr>
+                    <td><label for="a12">a12:</label></td>
+                    <td><input type="text" name="a12" required></td>
+                </tr>
+                <tr>
+                    <td><label for="a13">a13:</label></td>
+                    <td><input type="text" name="a13" required></td>
+                </tr>
+                <tr>
+                    <td><label for="a21">a21:</label></td>
+                    <td><input type="text" name="a21" required></td>
+                </tr>
+                <tr>
+                    <td><label for="a22">a22:</label></td>
+                    <td><input type="text" name="a22" required></td>
+                </tr>
+                <tr>
+                    <td><label for="a23">a23:</label></td>
+                    <td><input type="text" name="a23" required></td>
+                </tr>
+                <tr>
+                    <td><label for="a31">a31:</label></td>
+                    <td><input type="text" name="a31" required></td>
+                </tr>
+                <tr>
+                    <td><label for="a32">a32:</label></td>
+                    <td><input type="text" name="a32" required></td>
+                </tr>
+                <tr>
+                    <td><label for="a33">a33:</label></td>
+                    <td><input type="text" name="a33" required></td>
+                </tr>
+            </table>
+            <button type="submit">Calculate Determinant</button>
+        </form>
+        {% if determinant is defined %}
+        <p>Determinant: {{ determinant }}</p>
+        {% if invertible %}
+        <p>The matrix is invertible.</p>
+        {% else %}
+        <p>The matrix is not invertible.</p>
+        {% endif %}
+        {% endif %}
+        {% if error is defined %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </body>
+</html>
